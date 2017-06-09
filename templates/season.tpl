@@ -24,7 +24,7 @@
       <% fetchCard(data.ova,'#ova'); %>
     </div>
     <div id="movie" class="tab-pane fade in">
-      <% fetchCard(data.ova,'#movie'); %>
+      <% fetchCard(data.movie,'#movie'); %>
     </div>
   </div>
 </div>
