@@ -4,29 +4,27 @@
     <li role="presentation"><a data-toggle="tab" href="#ova">OVA/ONA/SP</a></li>
     <li role="presentation"><a data-toggle="tab" href="#movie">Movie</a></li>
   </ul>
-  <div class="tab-content">
+  <div class="tab-content" style="padding-top: 20px;">
     <div id="tv" class="tab-pane fade  active in">
-    <% data.tv.forEach(function(anime){ %>
-      <div class="rows">
-        <div style="height:200px;" class="col-md-4">
-          <%= anime.name %>
-        </div>
-      </div>
-    <%}); %>
+      <% data.tv.forEach(function(anime){
+            context.render('templates/card.tpl', {
+              anime:anime
+            }).appendTo('#tv');
+      }); %>
     </div>
     <div id="ova" class="tab-pane fade in">
-    <% data.ova.forEach(function(anime){ %>
-      <div style="height:200px;">
-        <%= anime.name %>
-      </div>
-    <%}); %>
+      <% data.ova.forEach(function(anime){
+            context.render('templates/card.tpl', {
+              anime:anime
+            }).appendTo('#ova');
+      }); %>
     </div>
     <div id="movie" class="tab-pane fade in">
-    <% data.movie.forEach(function(anime){ %>
-      <div style="height:200px;">
-        <%= anime.name %>
-      </div>
-    <%}); %>
+      <% data.movie.forEach(function(anime){
+            context.render('templates/card.tpl', {
+              anime:anime
+            }).appendTo('#movie');
+      }); %>
     </div>
   </div>
 </div>

@@ -15,7 +15,8 @@ var app = $.sammy('#app',function() {
     var requestURL = apiRoot+'/'+req.params.lang+'/'+req.params.year+'/'+req.params.season+'.json';
     $.get(requestURL).done(function(response){
       console.log(response)
-      window.b = req.render('templates/season.tpl', {
+      req.render('templates/season.tpl', {
+        context: req,
         id: 0,
         lang: req.params.lang,
         year: req.params.year,
