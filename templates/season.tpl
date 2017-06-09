@@ -1,3 +1,15 @@
+<%
+  var fetchCard = function(data,selector){
+    if(data.length>0){
+      var cData = data.shift();
+      context.render('templates/card.tpl', {
+        anime:cData
+      },function(){
+        fetchCard(data,selector);
+      }).appendTo(selector);
+    }
+  };
+%>
 <div>
   <ul class="nav nav-tabs nav-justified">
     <li role="presentation" class="active"><a data-toggle="tab" href="#tv">TV</a></li>
@@ -6,25 +18,13 @@
   </ul>
   <div class="tab-content" style="padding-top: 20px;">
     <div id="tv" class="tab-pane fade  active in">
-      <% data.tv.forEach(function(anime){
-            context.render('templates/card.tpl', {
-              anime:anime
-            }).appendTo('#tv');
-      }); %>
+      <% fetchCard(data.tv,'#tv');%>
     </div>
     <div id="ova" class="tab-pane fade in">
-      <% data.ova.forEach(function(anime){
-            context.render('templates/card.tpl', {
-              anime:anime
-            }).appendTo('#ova');
-      }); %>
+      <% fetchCard(data.ova,'#ova'); %>
     </div>
     <div id="movie" class="tab-pane fade in">
-      <% data.movie.forEach(function(anime){
-            context.render('templates/card.tpl', {
-              anime:anime
-            }).appendTo('#movie');
-      }); %>
+      <% fetchCard(data.ova,'#movie'); %>
     </div>
   </div>
 </div>
