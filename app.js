@@ -1,7 +1,8 @@
 var apiRoot = "https://fansubdb.github.io/";
+var folder = "fanapp-browser";
 var app = $.sammy('#app',function() {
   this.use(Sammy.Template, 'tpl');
-  this.get('^(?:|#|\/#)/$',function(req){
+  this.get('^' + folder + '(?:|#|\/#)/$',function(req){
     $("#top-brand").html("FansubDB");
     var requestURL = apiRoot+'/lang.json';
     $.get(requestURL).done(function(response){
@@ -12,7 +13,7 @@ var app = $.sammy('#app',function() {
       req.render('templates/notfound.tpl').swap(req.$element());
     })
   });
-  this.get('^/#/:lang(?:|\/)$', function(req) {
+  this.get('^/' + folder + '/#/:lang(?:|\/)$', function(req) {
     $("#top-brand").html("FansubDB");
     var requestURL = apiRoot+'/'+req.params.lang+'/list.json';
     $.get(requestURL).done(function(response){
@@ -32,7 +33,7 @@ var app = $.sammy('#app',function() {
       req.render('templates/notfound.tpl').swap(req.$element());
     })
   });
-  this.get('^/#/:lang/:year/:season(?:|\/)$', function(req) {
+  this.get('^/' + folder + '/#/:lang/:year/:season(?:|\/)$', function(req) {
     $("#top-brand").html(req.params.season+" "+req.params.year);
     var requestURL = apiRoot+'/'+req.params.lang+'/'+req.params.year+'/'+req.params.season+'.json';
     $.get(requestURL).done(function(response){
