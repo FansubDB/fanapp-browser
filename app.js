@@ -1,4 +1,4 @@
-var apiRoot = "https://fansubdb.github.io/";
+var apiRoot = "https://fansubdb.github.io/data/";
 var folder = "/fanapp-browser";
 var app = $.sammy('#app',function() {
   this.use(Sammy.Template, 'tpl');
