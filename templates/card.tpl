@@ -8,7 +8,7 @@
         </div>
         <div style="overflow-y:auto">
           <% if(anime.group.length == 0) {%>
-            <span style="color:#B71C1C">Not avaliable</span>
+            <span style="color:#B71C1C">Not avalaible</span>
           <% } %>
           <% anime.group.forEach(function(group){%>
             <div class="fansub-project <%=group.status%>">
