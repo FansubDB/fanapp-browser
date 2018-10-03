@@ -7,7 +7,7 @@
           <img style="max-height:100px" src="<%=language.flag%>" />
           <div class="panel-body" style="flex-grow: 1;display: flex;flex-direction: column;">
             <div style="margin:auto;display:block">
-              <%=language.title%>
+              <%=language.lang%>
             </div>
           </div>
         </div>
