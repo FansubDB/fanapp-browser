@@ -7,17 +7,12 @@
           <%= anime.name %>
         </div>
         <div style="overflow-y:auto">
-          <% if(anime.group.length == 0) {%>
+          <% if(anime.groups.length == 0) {%>
             <span style="color:#B71C1C">Not avalaible</span>
           <% } %>
-          <% anime.group.forEach(function(group){%>
+          <% anime.groups.forEach(function(group){%>
             <div class="fansub-project <%=group.status%>">
-              <% group.detail.forEach(function(fansub){
-                if(fansub.url){%>
-                  <a href="<%=fansub.url%>" target="_blank">
-                    <%=fansub.name%>
-                  </a>
-                <% }else{ %>
+              <% group.detail.forEach(function(fansub){%>
                   <span>
                     <%=fansub.name%>
                   </span>
